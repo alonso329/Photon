@@ -1,51 +1,51 @@
-import './App.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import "./App.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   return (
     <div className="App">
       <div className="header-nav">
         <nav className="navBar">
-          <ul class="menu">
-            <li class="logo">
+          <ul className="menu">
+            <li className="logo">
               <a href="#">Photon</a>
             </li>
-            <li class="item">
+            <li className="item">
               <a href="#">
                 Categorias <FontAwesomeIcon icon={faAngleDown} />
               </a>
-              <ul class="submenu">
-                <li class="subitem">
+              <ul className="submenu">
+                <li className="subitem">
                   <a href="#">Item 1</a>
                 </li>
-                <li class="subitem">
+                <li className="subitem">
                   <a href="#">Item 2</a>
                 </li>
-                <li class="subitem">
+                <li className="subitem">
                   <a href="#">Item 3</a>
                 </li>
               </ul>
             </li>
-            <li class="item">
+            <li className="item">
               <a href="#">Season Pass</a>
             </li>
-            <li class="item">
+            <li className="item">
               <a href="#">Torneos</a>
             </li>
-            <li class="item">
+            <li className="item">
               <a href="#">Eventos</a>
             </li>
-            <li class="item">
+            <li className="item">
               <a href="#">Ayuda</a>
             </li>
-            <li class="item button">
+            <li className="item button">
               <a href="#">Registrarse</a>
             </li>
-            <li class="item button secondary">
+            <li className="item button secondary">
               <a href="#">Ingresar</a>
             </li>
-            <li class="menuBars">
+            <li className="menuBars">
               <a href="#">
                 <FontAwesomeIcon icon={faBars} />
               </a>
