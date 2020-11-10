@@ -1,6 +1,6 @@
-import './App.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import "./App.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   return (
