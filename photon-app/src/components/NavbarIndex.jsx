@@ -16,14 +16,14 @@ function NavbarIndex() {
   return (
     <Box bg="teal.800" w="100%" p={4} color="white">
       <Flex align="center">
-        <Heading size="md">Photon</Heading>
+        <Heading size="md" mr={5}>Photon</Heading>
         <Spacer />
         <InputGroup>
           <InputLeftElement
             pointerEvents="none"
             children={<SearchIcon color="gray.300" />}
           />
-          <Input placeholder="Buscar" />
+          <Input placeholder="Buscar" variant="filled" maxW="25rem"/>
         </InputGroup>
         <HStack spacing={3}>
           <Button colorScheme="teal">Iniciar Sesion</Button>
