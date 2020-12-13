@@ -1,31 +1,36 @@
 import React from "react";
 import {
-  Navbar,
-  Nav,
-  Form,
+  Box,
+  HStack,
+  Heading,
   Button,
-  FormControl,
-  NavDropdown,
-} from "react-bootstrap";
+  Flex,
+  Spacer,
+  InputGroup,
+  InputLeftElement,
+  Input,
+} from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
 
 function NavbarIndex() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home">Photon</Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Form inline className="mr-auto">
-          <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
-          <Button variant="outline-info">Buscar</Button>
-        </Form>
-        <Nav>
-          <Nav.Link href="#deets">Iniciar Sesion</Nav.Link>
-          <Nav.Link eventKey={2} href="#memes">
-            Registrarse
-          </Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
+    <Box bg="teal.800" w="100%" p={4} color="white">
+      <Flex align="center">
+        <Heading size="md">Photon</Heading>
+        <Spacer />
+        <InputGroup>
+          <InputLeftElement
+            pointerEvents="none"
+            children={<SearchIcon color="gray.300" />}
+          />
+          <Input placeholder="Buscar" />
+        </InputGroup>
+        <HStack spacing={3}>
+          <Button colorScheme="teal">Iniciar Sesion</Button>
+          <Button colorScheme="teal">Registrarse</Button>
+        </HStack>
+      </Flex>
+    </Box>
   );
 }
 
