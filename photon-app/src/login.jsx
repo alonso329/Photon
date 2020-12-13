@@ -3,52 +3,51 @@ import {
   Button,
   FormControl,
   FormLabel,
-  Grid,
-  GridItem,
   Heading,
   HStack,
   Input,
   Text,
   VStack,
+  Grid,
+  GridItem,
 } from "@chakra-ui/react";
 import { ChakraProvider } from "@chakra-ui/react";
 
 export default function Login() {
   return (
     <ChakraProvider>
-      <Box m="auto" maxW="350px" align="center" as="form" mt={20}>
-        <VStack spacing={5}>
-          <Heading>Iniciar Sesión</Heading>
-          <FormControl id="email">
-            <FormLabel>Correo Electrónico</FormLabel>
-            <Input type="email" placeholder="Correo Electronico" />
-          </FormControl>
-          <FormControl id="password">
-            <FormLabel>Contraseña </FormLabel>
-            <Input type="password" placeholder="Contraseña" />
-          </FormControl>
-          <Button
-            size="md"
-            isFullWidth="true"
-            variant="solid"
-            colorScheme="teal"
-          >
-            INICIAR SESIÓN
-          </Button>
-          <Button colorScheme="teal" variant="link">
-            Recuperar contraseña
-          </Button>
-          <Button colorScheme="teal" variant="link" p={0} m={0}>
-            Registrate
-          </Button>
-          <Text>Ó inicia sesión con</Text>
-          <HStack spacing={2}>
-            <Button colorScheme="google" variant="outline">
-              GOOGLE
-            </Button>
-          </HStack>
-        </VStack>
-      </Box>
+      <Grid
+        templateColumns="repeat(3, 1fr)"
+        bg="blue.400"
+      >
+        <GridItem colStart={2} rowStart={2}>
+          <Box align="center" as="form" bgColor="white" p={5} borderRadius={10} maxW="200px">
+            <VStack spacing={5}>
+              <Heading size="lg">Iniciar Sesión</Heading>
+              <FormControl id="email">
+                <FormLabel>Correo Electrónico</FormLabel>
+                <Input type="email" placeholder="Correo Electronico" />
+              </FormControl>
+              <FormControl id="password">
+                <FormLabel>Contraseña </FormLabel>
+                <Input type="password" placeholder="Contraseña" />
+              </FormControl>
+              <Button
+                size="md"
+                isFullWidth="true"
+                variant="solid"
+                colorScheme="teal"
+              >
+                INICIAR SESIÓN
+              </Button>
+              <Text>O inicia sesión con</Text>
+                <Button colorScheme="red">
+                  Google
+                </Button>
+            </VStack>
+          </Box>
+        </GridItem>
+      </Grid>
     </ChakraProvider>
   );
 }
