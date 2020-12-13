@@ -1,12 +1,10 @@
-import NavbarIndex from './components/NavbarIndex';
+import Navbar from './components/Navbar';
 import { ChakraProvider } from "@chakra-ui/react"
-import Login from "./login.jsx"
-import Register from "./registro.jsx"
 
 function App() {
   return (
     <ChakraProvider>
-      <NavbarIndex />
+      <Navbar />
     </ChakraProvider>
   );
 }
