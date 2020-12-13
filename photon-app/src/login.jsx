@@ -3,6 +3,8 @@ import {
   Button,
   FormControl,
   FormLabel,
+  Grid,
+  GridItem,
   Heading,
   HStack,
   Input,
@@ -14,7 +16,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 export default function Login() {
   return (
     <ChakraProvider>
-      <Box m="auto" maxW="350px" align="center" as="form">
+      <Box m="auto" maxW="350px" align="center" as="form" mt={20}>
         <VStack spacing={5}>
           <Heading>Iniciar Sesión</Heading>
           <FormControl id="email">
@@ -25,18 +27,23 @@ export default function Login() {
             <FormLabel>Contraseña </FormLabel>
             <Input type="password" placeholder="Contraseña" />
           </FormControl>
-          <Button size="md" isFullWidth="true" variant="solid">
+          <Button
+            size="md"
+            isFullWidth="true"
+            variant="solid"
+            colorScheme="teal"
+          >
             INICIAR SESIÓN
           </Button>
-          <Button color="#074EE8" variant="link">
+          <Button colorScheme="teal" variant="link">
             Recuperar contraseña
           </Button>
-          <Button color="#074EE8" variant="link" p={0} m={0}>
+          <Button colorScheme="teal" variant="link" p={0} m={0}>
             Registrate
           </Button>
           <Text>Ó inicia sesión con</Text>
           <HStack spacing={2}>
-            <Button color="#074EE8" variant="outline">
+            <Button colorScheme="google" variant="outline">
               GOOGLE
             </Button>
           </HStack>

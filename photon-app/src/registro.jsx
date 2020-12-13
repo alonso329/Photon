@@ -14,7 +14,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 export default function Registro() {
   return (
     <ChakraProvider>
-      <Box m="auto" maxW="350px" align="center" as="form">
+      <Box m="auto" maxW="350px" align="center" as="form" mt={5}>
         <VStack spacing={5}>
           <Heading>Registro</Heading>
           <HStack spacing={2}>
@@ -39,18 +39,18 @@ export default function Registro() {
             <FormLabel>Contraseña </FormLabel>
             <Input type="password" placeholder="Confirmar Contraseña" />
           </FormControl>
-          <Button size="md" isFullWidth="true" variant="solid">
+          <Button size="md" isFullWidth="true" variant="solid" colorScheme="teal">
             INICIAR SESIÓN
           </Button>
-          <Button color="teal.400" variant="link">
+          <Button colorScheme="teal" variant="link">
             Recuperar contraseña
           </Button>
-          <Button color="teal.400" variant="link" p={0} m={0}>
+          <Button colorScheme="teal" variant="link" p={0} m={0}>
             Registrate
           </Button>
           <Text>Ó inicia sesión con</Text>
           <HStack spacing={2}>
-            <Button color="teal.400" variant="outline">
+            <Button colorScheme="google" variant="outline">
               GOOGLE
             </Button>
           </HStack>
