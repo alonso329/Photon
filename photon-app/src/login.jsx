@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -9,14 +9,23 @@ import {
   Text,
   VStack,
   extendTheme,
+  AlertDialog,
+  AlertDialogOverlay,
+  AlertDialogBody,
+  AlertDialogHeader,
+  AlertDialogFooter,
+  AlertDialogContent,
 } from "@chakra-ui/react";
 import { ChakraProvider } from "@chakra-ui/react";
 import "firebase/auth";
 import { useFirebaseApp } from "reactfire";
+import { Link } from "react-router-dom";
 
 export default function Login() {
-  const { email, setEmail } = useState("");
-  const { password, setPassword } = useState("");
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const cancelRef = React.useRef();
 
   const firebase = useFirebaseApp();
 
@@ -39,12 +48,10 @@ export default function Login() {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((user) => {
-        // Signed in
-        // ...
+        setIsOpen(true);
       })
       .catch((error) => {
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        console.log(error);
       });
   };
 
@@ -55,6 +62,7 @@ export default function Login() {
         as="form"
         bgColor="white"
         p={5}
+        m={5}
         borderRadius={10}
         w={350}
       >
@@ -81,7 +89,7 @@ export default function Login() {
             isFullWidth="true"
             variant="solid"
             colorScheme="teal"
-            onClick={submit()}
+            onClick={() => submit(email, password)}
           >
             INICIAR SESIÓN
           </Button>
@@ -89,6 +97,26 @@ export default function Login() {
           <Button colorScheme="red">Google</Button>
         </VStack>
       </Box>
+
+      <AlertDialog
+        motionPreset="slideInBottom"
+        leastDestructiveRef={cancelRef}
+        isOpen={isOpen}
+        isCentered
+      >
+        <AlertDialogOverlay />
+        <AlertDialogContent>
+          <AlertDialogHeader>Has iniciado sesion</AlertDialogHeader>
+          <AlertDialogBody>
+            Vuelve a la pagina principal para seguir comprando ;)
+          </AlertDialogBody>
+          <AlertDialogFooter>
+            <Link to="/">
+              <Button colorScheme="green">Aceptar</Button>
+            </Link>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </ChakraProvider>
   );
 }

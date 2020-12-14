@@ -12,8 +12,10 @@ import {
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { Link } from "react-router-dom";
+import { useUser } from "reactfire";
 
 function Navbar() {
+  const user = useUser();
   return (
     <Box bg="teal.800" w="100%" p={4} color="white">
       <Flex align="center">

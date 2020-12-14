@@ -6,7 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./login.jsx";
 import Register from "./registro.jsx";
-import * as firebase from "firebase/app";
 import { FirebaseAppProvider } from "reactfire";
 
 const firebaseConfig = {
