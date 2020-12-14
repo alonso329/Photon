@@ -18,16 +18,18 @@ import {
 } from "@chakra-ui/react";
 import { ChakraProvider } from "@chakra-ui/react";
 import "firebase/auth";
-import { useFirebaseApp } from "reactfire";
+import { useFirebaseApp, useAuth } from "reactfire";
 import { Link } from "react-router-dom";
 
 export default function Login() {
-  const [ email, setEmail ] = useState("");
-  const [ password, setPassword ] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const cancelRef = React.useRef();
 
-  const firebase = useFirebaseApp();
+  const auth = useAuth;
+  const provider = new auth.GoogleAuthProvider();
+  const firebaseApp = useFirebaseApp();
 
   const theme = extendTheme({
     styles: {
@@ -44,13 +46,25 @@ export default function Login() {
   });
 
   const submit = async (email, password) => {
-    await firebase
+    await firebaseApp
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((user) => {
         setIsOpen(true);
       })
       .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const loginGoogle = async () => {
+    await firebaseApp
+      .auth()
+      .signInWithPopup(provider)
+      .then(function () {
+        setIsOpen(true);
+      })
+      .catch(function (error) {
         console.log(error);
       });
   };
@@ -94,7 +108,9 @@ export default function Login() {
             INICIAR SESIÓN
           </Button>
           <Text>O inicia sesión con</Text>
-          <Button colorScheme="red">Google</Button>
+          <Button colorScheme="red" onClick={() => loginGoogle()}>
+            Google
+          </Button>
         </VStack>
       </Box>
 
